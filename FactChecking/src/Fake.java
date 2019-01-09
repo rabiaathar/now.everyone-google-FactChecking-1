@@ -10,20 +10,6 @@ import org.jsoup.nodes.Document;
 
 public class Fake {
 
-	public static List<String> preprocess(String text) {
-
-		List<String> tokens = new ArrayList<String>();
-		text = text.toLowerCase();
-		text = "<s> " + text.replaceAll("[^a-z0-9.!?]", " ");
-
-		text = text.replaceAll("[.!?]", " </s> <s> ").replaceAll("  *", " ");
-		text = text.substring(0, text.length() - 4);
-
-		tokens = Arrays.asList(text.split(" "));
-
-		return tokens;
-	}
-
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader("C:/Users/jbuel/Desktop/train.tsv"));
 		ArrayList<String> deathList = new ArrayList<>();
