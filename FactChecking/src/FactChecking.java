@@ -9,15 +9,26 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class FactChecking {
-
+	public static String FACTURI(String id)
+	{
+		//<Fact-URI>
+		StringBuilder factid = new StringBuilder();
+		factid.append("<http://swc2017.aksw.org/task2/dataset/").append(id).append("> ");
+		return factid.toString();
+	}
+	public static String PROPURI(double value)
+	{
+		//<prop-URI>
+		StringBuilder factvalue = new StringBuilder();
+		factvalue.append("<http://swc2017.aksw.org/hasTruthValue> \"").append(value);
+		return factvalue.toString();
+	}
 	public static String writeToFile(String id, double value) throws IOException {
-
-		StringBuilder str = new StringBuilder();
-		str.append("<http://swc2017.aksw.org/task2/dataset/").append(id).append("> ")
-				.append("<http://swc2017.aksw.org/hasTruthValue> \"").append(value)
-				.append("\"^^<http://www.w3.org/2001/XMLSchema#double> .").append("\n");
-		str.toString();
-		return str.toString();
+		//<Fact-URI> <prop-URI> "value"^^type .
+		StringBuilder resultLine = new StringBuilder();
+		String valueType="\"^^<http://www.w3.org/2001/XMLSchema#double> .\n";
+		resultLine.append(FACTURI(id)).append(PROPURI(value)).append(valueType);
+		return resultLine.toString();
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -67,13 +78,11 @@ public class FactChecking {
 				remainingList.add(line);
 			}
 		}
-		//System.out.println("Size of"+teamList.size());
-		br.close();
-		// System.out.println("Size="+remainingList.size());
 		
+		br.close();
 		int exception = 0;
 
-	////team
+		////Team Sublist
 		for (int i = 0; i < teamList.size(); i++) {
 			String fact = teamList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));				
@@ -89,9 +98,7 @@ public class FactChecking {
 						fact = fact.replace("  ", " ");
 					}
 					name = fact.substring(0, fact.indexOf("-") - 1);
-					//System.out.println("Person name="+name);
 					team = fact.substring(fact.indexOf("-") + 2,fact.length());
-					//System.out.println("team name="+team);
 				} 
 				if (fact.contains("squad")) {
 					fact = fact.replace("squad", "").replace("'s", "").replace("' ", " ").replace(" is ", " - ")
@@ -100,9 +107,7 @@ public class FactChecking {
 						fact = fact.replace("  ", " ");
 					}
 					name = fact.substring(0, fact.indexOf("-") - 1);
-					//System.out.println("Person name="+name);
 					team = fact.substring(fact.indexOf("-") + 2,fact.length());
-					//System.out.println("Squad name="+team);
 				} 
 				System.out.println(fact + "\t");
 
@@ -125,7 +130,7 @@ public class FactChecking {
 		}
 		
 		
-		// birth
+		// Birth-Born Sublist
 		for (int i = 0; i < birthList.size(); i++) {
 			String fact = birthList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));
@@ -164,7 +169,7 @@ public class FactChecking {
 			br1.write(writeToFile(FID, factValue));
 			
 		}
-		//death
+		//Death Sublist
 		for (int i = 0; i < deathList.size(); i++) {
 			String fact = deathList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));
@@ -193,7 +198,7 @@ public class FactChecking {
 			br1.write(writeToFile(FID, factValue));
 		}
 
-		// role
+		// Role Sublist
 		for (int i = 0; i < roleList.size(); i++) {
 				String fact = roleList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -238,7 +243,7 @@ public class FactChecking {
 				br1.write(writeToFile(FID, factValue));
 		}
 
-		// stars
+		// Stars-Actors Sublist
 		for (int i = 0; i < starsList.size(); i++) {
 				String fact = starsList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -268,7 +273,7 @@ public class FactChecking {
 				}catch (Exception e) {}
 				br1.write(writeToFile(FID, factValue));
 		}
-		//nobel
+		//NoblePrize-Award-Honers Sublist
 		for (int i = 0; i < nobelList.size(); i++) {
 				String fact = nobelList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -315,7 +320,7 @@ public class FactChecking {
 				br1.write(writeToFile(FID, factValue));
 		}
 
-		// author
+		// Author Sublist
 		for (int i = 0; i < authorList.size(); i++) {
 				String fact = authorList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -362,7 +367,7 @@ public class FactChecking {
 			}
 				br1.write(writeToFile(FID, factValue));
 		}
-		// spouse
+		// Spouse-BetterHalf Sublist
 		for (int i = 0; i < spouseList.size(); i++) {
 				String fact = spouseList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -409,7 +414,7 @@ public class FactChecking {
 			}
 				br1.write(writeToFile(FID, factValue));
 		}
-		// subordinate
+		// Subordinate
 		for (int i = 0; i < subordinateList.size(); i++) {
 				String fact = subordinateList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -456,7 +461,7 @@ public class FactChecking {
 			}
 				br1.write(writeToFile(FID, factValue));
 		}
-		// foundation
+		// Foundation
 		for (int i = 0; i < foundationList.size(); i++) {
 				String fact = foundationList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
@@ -504,17 +509,13 @@ public class FactChecking {
 				br1.write(writeToFile(FID, factValue));
 		}
 		
-		
-		
-
-		System.out.println("correctPositive" + "/" + "falsePositive" + "/" + "falseNegative" + "/" + "correctNegative"
-				+ "/" + "exception");
-		
-
+		//Remaining Facts
 		for (int i = 0; i < remainingList.size(); i++) {
 			String fact = remainingList.get(i);
+			FID = fact.substring(0, fact.indexOf("\t"));
 			System.out.println("left: "+fact);
-//			
+			br1.write(writeToFile(FID, 0.5));
+			
 		}
 		System.out.println("Result Computed");
 		System.out.println("Result are stored in \"result.ttl\" file, kindly refer to the project folder");
