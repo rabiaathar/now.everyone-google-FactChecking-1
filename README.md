@@ -11,17 +11,21 @@ The Green Corpus
 # Approach Description
 
 # Description how project can be built and executed
-1. Tool: Preferrably Eclipse(IDE) or any other IDE for JAVA is required.
-2. Download the ZIP folder from GitHub link provided.
-3. Unzip the folder.
+1. Tool: Preferrably Eclipse(IDE) for JAVA is required. 
+2. Result file can be found in main folder "FactChecking" with name result.ttl.
 Note: the result file contains existing results. Before running delete the existing results from file.
-4. Open eclipse.
-5. Import project into existing eclipse workplace.
-6. If project to be tested using new data set then refer line #  35 and replace the file name along with extension.
-6. If the import is successfully done, it can be executed by clicking the green play button.
-7. The Project will start running.
-8. IMPORATNT! Wait till a message displays as below:
+3. Open eclipse.
+4. Click File->Import.
+5. From the Wizard select "General".
+6. Fro Sub menu of General select "Existing Projects into Workspace".
+7. Click Next
+8. On the left of "Select root directory" click browse and select the unziped folder and navigate to "FactChecking" folder.
+9. Click on "Finish".
+10. If the import is successfully done, it can be executed by clicking the green play button.
+11. If project to be tested using new data set then refer line #  35 and replace the file name along with extension.
+12. The Project will start running.
+13. IMPORATNT! Wait till a message displays as below:
   "Result Computed"
   "Result are stored in result.ttl file, kindly refer to the project folder."
-9. The result file wil have new results.
+14. The result file wil have new results.
 
