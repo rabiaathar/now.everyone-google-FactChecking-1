@@ -28,5 +28,6 @@ Note: the result file contains existing results. Before running delete the exist
   "Result Computed" 
  
   "Result are stored in result.ttl file, kindly refer to the project folder."
+  
 14. The result file wil have new results.
 
