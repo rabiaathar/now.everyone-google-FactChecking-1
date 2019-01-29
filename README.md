@@ -11,13 +11,13 @@ The Green Corpus
 # Approach Description
 1. We order the given facts into serveral lists depending on the topic of the fact using keywords. For example we put facts containing the words "nascence" or "birth" in one list and all facts containing the keywords "death" and "last place" into another.
 2. Now we try to tackle each problem on its own and implemented therefore different procedures for each subproblem. The basic structure of all of these procedures can be described as follows:
-  2a. Some preprocessing is done that removes periods, apostrophes and the predicate which is the same for each element in a list.
-  2b. A subject and an object are extracted from the sentence. For example for a fact about a birth place, the name of the person is the subject, the place is the object.
-  2c. We try to verify the facts using wikipedia as a knowledge base. 
-    2c1. Therefore we try to get the content of the webpage about the subject in wikipedia using wikipedias search engine and the subject name.
-    2c2. Depending on the list we either look if the object can be found in certain parts of the webpage about the subject (e.g. in the info box) or somewhere in the whole site.
-    2c3. If we find the object we assume the fact is true, if not we assume it's wrong. (... of course this assumption doesn't hold for complex sentences and relations, but it met the given benchmark)
-    2c4. If any problem occured during this procedure (e.g. when the webpage can't be found) we assume the fact is wrong.
+    - Some preprocessing is done that removes periods, apostrophes and the predicate which is the same for each element in a list.
+    - A subject and an object are extracted from the sentence. For example for a fact about a birth place, the name of the person is the subject, the place is the object.
+    - We try to verify the facts using wikipedia as a knowledge base. 
+        - Therefore we try to get the content of the webpage about the subject in wikipedia using wikipedias search engine and the subject name.
+        - Depending on the list we either look if the object can be found in certain parts of the webpage about the subject (e.g. in the info box) or somewhere in the whole site.
+        - If we find the object we assume the fact is true, if not we assume it's wrong. (... of course this assumption doesn't hold for complex sentences and relations, but it usually meets the given benchmark)
+    - If any problem occured during this procedure (e.g. when the webpage can't be found) we assume the fact is wrong.
     
 # Facts for which our program failes:
 Positive:
