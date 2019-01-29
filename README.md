@@ -28,11 +28,11 @@ False Positive:
 5. 'Thomas Müller's team is Bayern Munich.' -> The system has problems with special letters like 'ü'.
 
 False Negative:
-1.
-2.
-3.
-4.
-5.
+6.	'Google is Google's subordinate.' -> Google can be found in the entry about Google. 
+7. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
+8.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
+9.	'Toni Kroos' foundation place is Madrid.' -> The routine doesn't really check if the used predicate makes sense.
+10.	'Real Madrid's author is Toni Kroos.' -> Similar problem.
     
 # Description how project can be built and executed
 1. Tool: Preferrably Eclipse(IDE) for JAVA is required. Also Java-jdk-version 1.8.0.
