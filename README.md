@@ -9,7 +9,7 @@ The Green Corpus
 
 
 # Approach Description
-1. We assign the given facts into serveral lists depending on the topic of the fact using keywords. For example we put facts containing the words "nascence" or "birth" in one list and all facts containing the keywords "death" and "last place" into another. If a fact can't be assigned to any list since no key words occur, it's undecidable for our program.
+1. We assign the given facts into serveral lists depending on the topic of the fact using keywords. For example we put facts containing the words "nascence" or "birth" in one list and all facts containing the keywords "death" and "last place" into another. If a fact can't be assigned to any list since no key words occurs, it's undecidable for our program.
 2. Now we try to tackle each problem on its own and implemented therefore different procedures for each subproblem. The basic structure of all of these procedures can be described as follows:
     - Some preprocessing is done that removes periods, apostrophes and the predicate which is the same for each element in a list.
     - A subject and an object are extracted from the sentence. For example for a fact about a birth place, the name of the person is the subject, the place is the object.
