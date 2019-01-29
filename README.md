@@ -20,14 +20,14 @@ The Green Corpus
     - If any problem occured during this procedure (e.g. when the webpage can't be found) we assume the fact is wrong.
     
 # Facts for which our program failes:
-Positive:
-1.
-2.
-3.
-4.
-5. 
+False Positive:
+1. 'Leonardo DiCaprio's birth place is L.A.' -> The system can't handle abbreviations.
+2. 'Hamburg, Germany is Angela Merkel's nascence place.' -> Wikipedia has West Germany, instead of Germany
+3. 'George Bush's death place is Houston, Texas.' -> The right George Bush isn't found.
+4. 'Germany is in Europe.' -> The system can't handle facts that don't belong to the given topics.
+5. 'Thomas Müller's team is Bayern Munich.' -> The system has problems with special letters like 'ü'.
 
-Negative:
+False Negative:
 1.
 2.
 3.
