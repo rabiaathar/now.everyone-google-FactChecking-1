@@ -19,7 +19,7 @@ The Green Corpus
         - If we find the object we assume the fact is true, if not we assume it's wrong. (... of course this assumption doesn't hold for complex sentences and relations, but it usually meets the given benchmark)
     - If any problem occured during this procedure (e.g. when the webpage can't be found) we assume the fact is wrong.
     
-# Facts for which our program failes:
+# Facts for which our program fails:
 False Positive:
 1. 'Leonardo DiCaprio's birth place is L.A.' -> The system can't handle abbreviations.
 2. 'Hamburg, Germany is Angela Merkel's nascence place.' -> Wikipedia has West Germany, instead of Germany
@@ -28,11 +28,11 @@ False Positive:
 5. 'Thomas Müller's team is Bayern Munich.' -> The system has problems with special letters like 'ü'.
 
 False Negative:
-6.	'Google is Google's subordinate.' -> Google can be found in the entry about Google. 
-7. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
-8.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
-9.	'Toni Kroos' foundation place is Madrid.' -> The routine doesn't really check if the used predicate makes sense.
-10.	'Real Madrid's author is Toni Kroos.' -> Similar problem.
+1.	'Google is Google's subordinate.' -> Google can be found in the entry about Google. 
+2. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
+3.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
+4.	'Toni Kroos' foundation place is Madrid.' -> The routine doesn't really check if the used predicate makes sense.
+5.	'Real Madrid's author is Toni Kroos.' -> Similar problem.
     
 # Description how project can be built and executed
 1. Tool: Preferrably Eclipse(IDE) for JAVA is required. Also Java-jdk-version 1.8.0.
