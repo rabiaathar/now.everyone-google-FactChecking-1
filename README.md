@@ -28,12 +28,12 @@ False Positive:
 5. 'Thomas Müller's team is Bayern Munich.' -> The system has problems with special letters like 'ü'.
 
 False Negative:
-1.	'Google is Google's subordinate.' -> Google can be found in the entry about Google. 
-2. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
-3.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
-4.	'Toni Kroos' foundation place is Madrid.' -> The routine doesn't really check if the used predicate makes sense.
-5.	'Real Madrid's author is Toni Kroos.' -> Similar problem.
-    
+1. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
+2.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
+3.	'Audible's subsidiary is Amazon.com' -> As Audible is subsidiary of Amazon, so it returns true .
+4.  'Guardians of the Galaxy (film) stars Tyler Bates.' -> But Tyler Bates gives music of the film.
+5.	'Muhammad Ali Jinnah's death place is Federal Capital.' -> As Karachi is Federal Capital but Fedral Capital is not name of place it self.
+   
 # Description how project can be built and executed
 1. Tool: Preferrably Eclipse(IDE) for JAVA is required. Also Java-jdk-version 1.8.0.
 2. Result file can be found in main folder "FactChecking" with name result.ttl.
