@@ -49,7 +49,7 @@ public class FactChecking {
 		ArrayList<String> remainingList = new ArrayList<>();
 		
 		String FID;
-		double factValue = 0;
+		double factValue = 0.0;
 		String line;
 		System.out.println("Processing Start... \nWait till all the results are computed and stored in file successfully!");
 		while ((line = br.readLine()) != null) {
@@ -86,7 +86,7 @@ public class FactChecking {
 		for (int i = 0; i < teamList.size(); i++) {
 			String fact = teamList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));				
-			factValue=0.5;
+			factValue=0.0;
 			try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 				String name="";
@@ -119,7 +119,7 @@ public class FactChecking {
 				if (nameWiki.contains(team)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
@@ -134,7 +134,7 @@ public class FactChecking {
 		for (int i = 0; i < birthList.size(); i++) {
 			String fact = birthList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));
-			factValue = 0.5;
+			factValue = 0.0;
 			try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -163,9 +163,12 @@ public class FactChecking {
 			if (diedWiki.contains(place)) {
 					factValue = 1.0;
 			} else {
-				factValue = 0.0;
+				factValue = -1.0;
 			}}
-			catch (Exception e) {}
+			catch (Exception e) {
+				exception++;
+				System.out.println(e);
+			}
 			br1.write(writeToFile(FID, factValue));
 			
 		}
@@ -173,7 +176,7 @@ public class FactChecking {
 		for (int i = 0; i < deathList.size(); i++) {
 			String fact = deathList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));
-			factValue = 0.5;
+			factValue = 0.0;
 			try {
 			fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -192,9 +195,12 @@ public class FactChecking {
 			if (diedWiki.contains(place)) {
 				factValue = 1.0;
 			} else {
-				factValue = 0.0;
+				factValue = -1.0;
 			}
-			}catch (Exception e){}
+			}catch (Exception e){
+				exception++;
+				System.out.println(e);
+			}
 			br1.write(writeToFile(FID, factValue));
 		}
 
@@ -202,7 +208,7 @@ public class FactChecking {
 		for (int i = 0; i < roleList.size(); i++) {
 				String fact = roleList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue = 0.5;
+				factValue = 0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -234,7 +240,7 @@ public class FactChecking {
 				if (nameWiki.contains(country)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
@@ -247,7 +253,7 @@ public class FactChecking {
 		for (int i = 0; i < starsList.size(); i++) {
 				String fact = starsList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue = 0.5;
+				factValue = 0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -268,16 +274,19 @@ public class FactChecking {
 				if (actorWiki.contains(film)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
-				}catch (Exception e) {}
+				}catch (Exception e) {
+					exception++;
+					System.out.println(e);
+				}
 				br1.write(writeToFile(FID, factValue));
 		}
 		//NoblePrize-Award-Honers Sublist
 		for (int i = 0; i < nobelList.size(); i++) {
 				String fact = nobelList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue=0.5;
+				factValue=0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -311,7 +320,7 @@ public class FactChecking {
 				if (nameWiki.contains(award)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
@@ -324,7 +333,7 @@ public class FactChecking {
 		for (int i = 0; i < authorList.size(); i++) {
 				String fact = authorList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue = 0.5;
+				factValue = 0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -358,11 +367,12 @@ public class FactChecking {
 				if (nameWiki.contains(book)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
-				System.out.println(nobelList.get(i));
+				
+				System.out.println(authorList.get(i));
 				System.out.println(e);
 			}
 				br1.write(writeToFile(FID, factValue));
@@ -371,7 +381,7 @@ public class FactChecking {
 		for (int i = 0; i < spouseList.size(); i++) {
 				String fact = spouseList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue = 0.5;
+				factValue = 0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -405,11 +415,11 @@ public class FactChecking {
 				if (nameWiki.contains(spouse)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
-				System.out.println(nobelList.get(i));
+				System.out.println(spouseList.get(i));
 				System.out.println(e);
 			}
 				br1.write(writeToFile(FID, factValue));
@@ -418,7 +428,7 @@ public class FactChecking {
 		for (int i = 0; i < subordinateList.size(); i++) {
 				String fact = subordinateList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue=0.5;
+				factValue=0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -452,11 +462,11 @@ public class FactChecking {
 				if (company2Wiki.contains(company1)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
-				System.out.println(nobelList.get(i));
+				System.out.println(subordinateList.get(i));
 				System.out.println(e);
 			}
 				br1.write(writeToFile(FID, factValue));
@@ -465,7 +475,7 @@ public class FactChecking {
 		for (int i = 0; i < foundationList.size(); i++) {
 				String fact = foundationList.get(i);
 				FID = fact.substring(0, fact.indexOf("\t"));
-				factValue=0.5;
+				factValue=0.0;
 				try {
 				fact = fact.substring(fact.indexOf("\t") + 1);
 
@@ -499,11 +509,11 @@ public class FactChecking {
 				if (company2Wiki.contains(place)) {
 					factValue = 1.0;
 				} else {
-					factValue = 0.0;
+					factValue = -1.0;
 				}
 			} catch (Exception e) {
 				exception++;
-				System.out.println(nobelList.get(i));
+				System.out.println(foundationList.get(i));
 				System.out.println(e);
 			}
 				br1.write(writeToFile(FID, factValue));
@@ -514,7 +524,7 @@ public class FactChecking {
 			String fact = remainingList.get(i);
 			FID = fact.substring(0, fact.indexOf("\t"));
 			System.out.println("left: "+fact);
-			br1.write(writeToFile(FID, 0.5));
+			br1.write(writeToFile(FID, 0.0));
 			
 		}
 		System.out.println("Result Computed");
