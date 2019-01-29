@@ -28,7 +28,7 @@ False Positive:
 5. 'Thomas Müller's team is Bayern Munich.' -> The system has problems with special letters like 'ü'.
 
 False Negative:
-1. 	'Shakespeare's author is Shakespeare.' -> Likewise the author algorithm doesn't check if Shakespeare is a book at all.
+1. 	'Shakespeare's author is Shakespeare.' -> The author algorithm doesn't check if Shakespeare is a book at all.
 2.	'Toni Kroos' team is UEFA.' -> The word UEFA can be found in the entry about Toni Kroos.
 3.	'Audible's subsidiary is Amazon.com' -> As Audible is subsidiary of Amazon, so it returns true .
 4.  'Guardians of the Galaxy (film) stars Tyler Bates.' -> But Tyler Bates gives music of the film.
